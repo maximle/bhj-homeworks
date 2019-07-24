@@ -17,28 +17,10 @@ let timer1 = setInterval(function() {
     let minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
     let hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
     
-    console.log(hours, minutes, seconds);
-    let hourPR = 0;
-    let minPR = 0;
-    let secPR = 0;
-    if (hours > 9) {
-        hourPR = '';
-    } else {
-        hourPR = 0;
-    };
+    console.log(hours.toString().padStart(2, "0"), minutes.toString().padStart(2, "0"), seconds.toString().padStart(2, "0"));
+    
+    document.getElementById("timer").innerHTML = hours.toString().padStart(2, "0") + ':' + minutes.toString().padStart(2, "0") + ':' + seconds.toString().padStart(2, "0");
 
-    if (minutes > 9) {
-        minPR = '';
-    } else {
-        minPR = 0;
-    };
-
-    if (seconds > 9) {
-        secPR = '';
-    } else {
-        secPR = 0;
-    };
-    document.getElementById("timer").innerHTML = hourPR + '' + hours + ':'+ minPR + '' + minutes + ":" + secPR + seconds;
 }
 
 , 1000);
