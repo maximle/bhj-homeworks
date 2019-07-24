@@ -34,7 +34,7 @@ function ulDropFn(event) {
 };
 //console.log(links[1]);
 
-for (let i = 0; 0 < links.length; i++ ) {
+for (let i = 0; i < links.length; i++ ) {
     //console.log(links[i]);
     links[i].addEventListener('click', changerFn);
     function changerFn(event) {
