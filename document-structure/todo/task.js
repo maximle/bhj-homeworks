@@ -5,8 +5,10 @@ let taskRemove = document.querySelectorAll('a.task__remove');
 const items = document.querySelector( '.tasks__list' );
 
 function addTask(event) {
-    event.preventDefault();
+    //event.preventDefault();
     if ((13 == event.keyCode)) {
+        event.preventDefault();
+
         let value = input.value.trim();
         
         if (value === '') {
@@ -24,11 +26,11 @@ function addTask(event) {
         input.value = '';
         console.log(items.children);
         console.log(items.children[0].children.lastElementChild);
-        //addEventLi();
+        addEventLi();
     };
 };
 
-input.addEventListener('keyup', addTask);
+input.addEventListener('keypress', addTask);
 // function addEventLi() {
 //     console.log(items.children.length);
 //     lastTask = items.children[items.children.length - 1];
@@ -37,20 +39,21 @@ input.addEventListener('keyup', addTask);
 //     lastTask.querySelector('a').addEventListener('click', removeTask);
 // };
 
-// function addEventLi() {
-//     for (let i = 0; i < items.children.length; i++) {
-//         items.children[i].children[items.children[i].children.length - 1].addEventListener('click', event => {
-//             event.preventDefault();
-//             console.log('ok');
-//             //console.log(items.children[i]);
-//             console.log(items.children.length);
+function addEventLi() {
+    for (let i = 0; i < items.children.length; i++) {
+        items.children[i].children[items.children[i].children.length - 1].addEventListener('click', event => {
+            event.preventDefault();
+            console.log('ok');
+            //console.log(items.children[i]);
+            console.log(items.children.length);
+            console.log(i, 'i');
+            items.children[i].remove();
+            //console.log(items.children[i]);
+            console.log(items.children.length);
 
-//             items.children[i].remove();
-//             //console.log(items.children[i]);
-//             console.log(items.children.length);
-
-//         });
-//     };
+        });
+    };
+};
 //     // function removeTask(event) {
         
 //     // };
