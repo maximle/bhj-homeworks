@@ -8,7 +8,7 @@ function addTask(event) {
     //event.preventDefault();
     if ((13 == event.keyCode)) {
         event.preventDefault();
-
+        
         let value = input.value.trim();
         
         if (value === '') {
@@ -24,40 +24,27 @@ function addTask(event) {
             `;
         }
         input.value = '';
-        console.log(items.children);
-        console.log(items.children[0].children.lastElementChild);
-        addEventLi();
+        //console.log(items.children[items.children.length - 1].children[items.children[items.children.length - 1].children.length - 1]);
+        //items.children[items.children.length - 1].children[items.children[items.children.length - 1].children.length - 1].addEventListener('click', removeFn)
+        //console.log(items.children[0].children.lastElementChild);
+        //console.log(event.currentTarget);
+        //addEventLi();
+        
+
     };
 };
 
 input.addEventListener('keypress', addTask);
-// function addEventLi() {
-//     console.log(items.children.length);
-//     lastTask = items.children[items.children.length - 1];
-//     //lastTask = items.lastChild;
-//     console.log(lastTask);
-//     lastTask.querySelector('a').addEventListener('click', removeTask);
-// };
+items.addEventListener('click', removeFn);
 
-function addEventLi() {
-    for (let i = 0; i < items.children.length; i++) {
-        items.children[i].children[items.children[i].children.length - 1].addEventListener('click', event => {
-            event.preventDefault();
-            console.log('ok');
-            //console.log(items.children[i]);
-            console.log(items.children.length);
-            console.log(i, 'i');
-            items.children[i].remove();
-            //console.log(items.children[i]);
-            console.log(items.children.length);
 
-        });
-    };
+
+function removeFn(event) {
+    event.preventDefault();
+    console.log(event.target);
+    event.target.closest('div.task').remove();
 };
-//     // function removeTask(event) {
-        
-//     // };
-// };
+
 
 
 

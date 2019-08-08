@@ -7,12 +7,20 @@ console.log(tooltipElem[1].getBoundingClientRect());
 
 for (let i = 0; i < tooltipElem.length; i++) {
     tooltipElem[i].addEventListener('click', tooltipFn);
+    
     function tooltipFn(event) {
         event.preventDefault();
-        
-        
-        if (k === 0) {
-            //body.innerHTML = '<div class=\'tooltip\' style=\'left: 0; top: 0\'>Проверка!</div>';
+        let remove = document.querySelector('div.tooltip');
+
+        function removeFn() {
+            if (remove === null) {
+                console.log('null');
+            } else {
+                remove.remove();
+            }; 
+        };
+
+        function addTooltip() {
             let div = document.createElement('div');
             div.className = 'tooltip';
             let left = tooltipElem[i].getBoundingClientRect().left;
@@ -25,14 +33,17 @@ for (let i = 0; i < tooltipElem.length; i++) {
             div.innerText = tooltipElem[i].textContent;
             body.insertBefore(div, body.children[0]);
             console.log(div.getBoundingClientRect());
-            k = 1;
-        } else if (k === 1) {
-            console.log('removing');
-            let remove = document.querySelector('div.tooltip');
-            remove.remove();
-            k = 0;
-        };
+        }
 
+        if (remove !== null) {
+            if (remove.textContent === tooltipElem[i].textContent) {
+                removeFn();
+            } else {
+                removeFn();
+                addTooltip();
+            }
+        } else {
+            addTooltip();
+        }
     };
-    
 };
