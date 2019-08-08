@@ -36,12 +36,10 @@ for (let i = 0; i < tooltipElem.length; i++) {
         }
 
         if (remove !== null) {
-            if (remove.textContent === tooltipElem[i].textContent) {
-                removeFn();
-            } else {
-                removeFn();
+            removeFn();
+            if (remove.textContent !== tooltipElem[i].textContent) {
                 addTooltip();
-            }
+            };
         } else {
             addTooltip();
         }

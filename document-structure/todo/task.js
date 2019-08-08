@@ -3,7 +3,7 @@ let input = document.querySelector('input.tasks__input');
 console.log(input.value);
 let taskRemove = document.querySelectorAll('a.task__remove');
 const items = document.querySelector( '.tasks__list' );
-
+let closeLink;
 function addTask(event) {
     //event.preventDefault();
     if ((13 == event.keyCode)) {
@@ -25,18 +25,18 @@ function addTask(event) {
         }
         input.value = '';
         //console.log(items.children[items.children.length - 1].children[items.children[items.children.length - 1].children.length - 1]);
-        //items.children[items.children.length - 1].children[items.children[items.children.length - 1].children.length - 1].addEventListener('click', removeFn)
-        //console.log(items.children[0].children.lastElementChild);
-        //console.log(event.currentTarget);
-        //addEventLi();
-        
-
+        //items.children[items.children.length - 1].children[items.children[items.children.length - 1].children.length - 1].addEventListener('click', removeFn);
+        //closeLink = document.querySelectorAll('a.task__remove');
+        //console.log(closeLink);
+        //console.log(closeLink[closeLink.length - 1]);
+        //closeLink[closeLink.length - 1].addEventListener('click', removeFn);
+        for (let i = 0; i < closeLink.length; i++) {
+            closeLink[i].addEventListener('click', removeFn);
+        };
     };
 };
 
 input.addEventListener('keypress', addTask);
-items.addEventListener('click', removeFn);
-
 
 
 function removeFn(event) {
