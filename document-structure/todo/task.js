@@ -27,7 +27,7 @@ function addTaskItem() {
     closeLink[closeLink.length - 1].addEventListener('click', removeFn);
 };
 
-function addTask(event) {
+function addTaskOnEnter(event) {
     if ((13 == event.keyCode)) {
         event.preventDefault();
         console.log('asd');
@@ -35,7 +35,7 @@ function addTask(event) {
     };
 };
 
-input.addEventListener('keypress', addTask);
+input.addEventListener('keypress', addTaskOnEnter);
 button.addEventListener('click', e => {
     e.preventDefault();
     addTaskItem();
