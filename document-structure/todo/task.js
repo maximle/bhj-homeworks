@@ -6,6 +6,7 @@ let closeLink;
 let button = document.querySelector('button.tasks__add');
 
 function addTaskItem() {
+    //event.preventDefault();
     let value = input.value.trim();
     if (value === '') {
         alert('нельзя отправить пустое сообщение');
@@ -29,12 +30,16 @@ function addTaskItem() {
 function addTask(event) {
     if ((13 == event.keyCode)) {
         event.preventDefault();
+        console.log('asd');
         addTaskItem();
     };
 };
 
 input.addEventListener('keypress', addTask);
-button.addEventListener('click', addTaskItem);
+button.addEventListener('click', e => {
+    e.preventDefault();
+    addTaskItem();
+});
 
 function removeFn(event) {
     event.preventDefault();
